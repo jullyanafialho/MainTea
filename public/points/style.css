@@ -1,0 +1,43 @@
+
+.buttons {
+
+	min-width: 55px;
+	min-height: 35px;
+	text-align: center;
+	position: inline-block;
+	cursor: pointer;
+	border-radius: 5px;
+	border-width: 3px;
+	margin:auto;
+	display:inline-block;
+	margin-right: 5%;
+	margin-left: 5%;
+	-moz-box-shadow: 5px 5px 5px 1px black;
+	-webkit-box-shadow: 5px 5px 5px 1px black;
+	box-shadow: 5px 5px 5px 1px black;
+	background-color: white;
+	transition-property: background, border;
+    transition-duration: 1s;
+    transition-timing-function: linear;
+
+}
+
+#screen {
+	padding:25px;
+	margin:0 auto;
+	text-align: center;
+	margin-top: 100px;
+	width:200; 
+	height:200;
+	border-radius: 10px;
+	background-color: #0099CC;
+	border-width: 5px;
+	border-color: black;
+}
+
+#correctAnswers{
+	
+	margin-top: 60px;
+	text-align: auto;	
+
+}
