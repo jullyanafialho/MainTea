@@ -162,4 +162,4 @@ function gameOver(){
 
 	alert('Game Over\nPoints ' + points);
 
-}
+} 
