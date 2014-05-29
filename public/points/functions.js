@@ -1,6 +1,7 @@
 var rightAnswerId = -1;
 var correctAnswers = 0;
 var points = 0;
+var moduleOption = 2;
 
 function generateNumber(){
 
@@ -70,18 +71,55 @@ function answersQuestion(){
 function onOptionClick(id){
 
 	if(id != rightAnswerId)
-		alert("Wrong answer!");
+		
+		switch(moduleOption){
+
+		case 2: 	
+			seconds = 0;
+			calcPoints();				
+			break;
+
+		}
+		
+		
 	else {
+	
+	switch(moduleOption){
+
+		case 2: 	
+			calcPoints();
+			seconds=10;			
+			break;
+
+		}
 	
 	correctAnswers++;
 	answersQuestion();
 	document.getElementById("correctAnswers").innerHTML = "Correct Answers: "+correctAnswers;
 	
+		
+	
 	}  
 
 }
-var userSeconds = prompt("How many seconds?");
+
+switch(moduleOption){
+
+	case 1: 
+			var userSeconds = prompt("How many seconds?");
+		// Case module 1 (Countdown) is selected;
+		break;
+	case 2: 
+	
+		userSeconds = 10;			
+	
+		break;
+	case 3: // Case module 3 (Levels) is selected;
+			break;
+}
+
 var seconds = userSeconds;
+
 function secondPassed() {
     var minutes = Math.round((seconds - 30)/60);
     var remainingSeconds = seconds % 60;
@@ -93,6 +131,7 @@ function secondPassed() {
 		calcPoints();
         clearInterval(countdownTimer);
         document.getElementById('clock').innerHTML = "0:00";
+		gameOver();
     } else {
         seconds--;
     }
@@ -100,6 +139,27 @@ function secondPassed() {
 var countdownTimer = setInterval('secondPassed()', 1000);
 
 var calcPoints = function(){
-	points = Math.round(((correctAnswers/userSeconds)*correctAnswers)*100);
-	alert('Points ' + points);
+
+	switch(moduleOption){
+
+	case 1: 
+			
+		points = Math.round(((correctAnswers/userSeconds)*correctAnswers)*100);
+		break;
+		
+	case 2: 
+	
+		points += seconds*10;
+	
+		break;
+	case 3: // Case module 3 (Levels) is selected;
+			break;
+	}
+	
+}
+
+function gameOver(){
+
+	alert('Game Over\nPoints ' + points);
+
 }
