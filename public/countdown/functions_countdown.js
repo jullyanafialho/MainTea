@@ -80,8 +80,8 @@ function onOptionClick(id){
 	}  
 
 }
-var userSeconds = prompt("How many seconds?");
-var seconds = userSeconds;
+//var userSeconds = prompt("How many seconds?");
+var seconds = 60;
 function secondPassed() {
     var minutes = Math.round((seconds - 30)/60);
     var remainingSeconds = seconds % 60;
@@ -90,7 +90,6 @@ function secondPassed() {
     }
     document.getElementById('clock').innerHTML = minutes + ":" + remainingSeconds;
     if (seconds == 0) {
-		calcPoints();
         clearInterval(countdownTimer);
         document.getElementById('clock').innerHTML = "0:00";
     } else {
@@ -99,7 +98,3 @@ function secondPassed() {
 }
 var countdownTimer = setInterval('secondPassed()', 1000);
 
-var calcPoints = function(){
-	points = Math.round(((correctAnswers/userSeconds)*correctAnswers)*100);
-	alert('Points ' + points);
-}
