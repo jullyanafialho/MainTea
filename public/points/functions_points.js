@@ -71,10 +71,10 @@ function answersQuestion(){
 }
 
 function onOptionClick(id){
-
 	if(id != rightAnswerId){
-		alert("Wrong answer!");
+		alert("Wrong answer! You still can miss "+ (3 - wrongAnswers) +" more time(s)!");
 		wrongAnswers++;
+		document.getElementById("wrongAnswers").innerHTML = wrongAnswers;
 		if(wrongAnswers == 3)
 			calcPoints();
 		}
@@ -82,7 +82,7 @@ function onOptionClick(id){
 	
 	correctAnswers++;
 	answersQuestion();
-	document.getElementById("correctAnswers").innerHTML = "Correct Answers: "+correctAnswers;
+	document.getElementById("correctAnswers").innerHTML = correctAnswers;
 	totalSeconds += remainingSeconds;
 	seconds = 10;
 	secondPassed()
@@ -100,12 +100,17 @@ function secondPassed() {
     document.getElementById('clock').innerHTML = minutes + ":0" + remainingSeconds;
 	}
     if (seconds == 0) {
-		clearInterval(countdownTimer);
-		alert("Missing answer!");
+		//clearInterval(countdownTimer);
+		alert("Wrong answer! You still can miss "+ (3 - wrongAnswers) +" more time(s)!");
 		wrongAnswers++;
-		if(wrongAnswers == 3)
+		if(wrongAnswers == 3){
 			calcPoints();
-
+		}
+		else {
+			seconds = 10;
+			secondPassed();
+			answersQuestion();
+		}
         document.getElementById('clock').innerHTML = "0:00";
     } else {
         seconds--;
@@ -116,6 +121,7 @@ var countdownTimer = setInterval('secondPassed()', 1000);
 
 var calcPoints = function(){
 	points = totalSeconds * correctAnswers;
-	alert('Points ' + points);
+	alert("You've got 3 wrong answers. Your score is: "  + points);
+	//inserSQL()userName,points);
 	window.location = '../index.html'
 }
