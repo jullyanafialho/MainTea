@@ -72,7 +72,7 @@ function answersQuestion(){
 
 function onOptionClick(id){
 	if(id != rightAnswerId){
-		alert("Wrong answer! You still can miss "+ (3 - wrongAnswers) +" more time(s)!");
+		alert("Wrong answer! You still can miss "+ (2 - wrongAnswers) +" more time(s)!");
 		wrongAnswers++;
 		document.getElementById("wrongAnswers").innerHTML = wrongAnswers;
 		if(wrongAnswers == 3)
@@ -101,7 +101,7 @@ function secondPassed() {
 	}
     if (seconds == 0) {
 		//clearInterval(countdownTimer);
-		alert("Wrong answer! You still can miss "+ (3 - wrongAnswers) +" more time(s)!");
+		alert("Wrong answer! You still can miss "+ (2 - wrongAnswers) +" more time(s)!");
 		wrongAnswers++;
 		if(wrongAnswers == 3){
 			calcPoints();
