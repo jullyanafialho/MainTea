@@ -1,6 +1,9 @@
 var rightAnswerId = -1;
 var correctAnswers = 0;
 var points = 0;
+var level = -1;
+var correctLevelAnswers = [0, 0, 0];
+var TotalQuestions = 1;
 
 function generateNumber(){
 
@@ -38,11 +41,44 @@ function generateWrongAnswers(rightAnswer){
 
 function writeQuestion(){
 
-	var a = generateNumber() ;
-	var b = generateNumber() ;
-	var x = a + " * " + b ;
- 	document.getElementById("question").innerHTML = x;
- 	return a*b;
+	var a = 0;
+	var b = 0;
+	
+	TotalQuestions++;
+	TrueLevel=level+2;
+
+	if((TotalQuestions%10) == 0){		
+		level++;
+		correctLevelAnswers[level] = correctAnswers - (correctLevelAnswers[0]+correctLevelAnswers[1]);
+		alert("You are now on level: " + TrueLevel);
+	}		
+		switch (level){
+			case -1:
+				while(a != 1 && a!= 2 && a!= 3 && a!= 10){
+					a = generateNumber();
+				}
+				
+				b = generateNumber();
+				var x = a + " * " + b ;
+				document.getElementById("question").innerHTML = x;
+ 				return a*b;
+ 			case 0:
+				while((a!= 4) &&  (a!= 5) &&  (a!= 6)){
+					a = generateNumber();
+				}
+				b = generateNumber();
+				var x = a + " * " + b ;
+ 				document.getElementById("question").innerHTML = x;
+ 				return a*b;
+ 			case 1:
+ 				while((a!= 7) &&  (a!= 8) &&  (a!= 9)){
+					a = generateNumber();
+				}
+				b = generateNumber();
+				var x = a + " * " + b ;
+ 				document.getElementById("question").innerHTML = x;
+ 				return a*b;		
+		}
 	
 }
 
@@ -82,6 +118,7 @@ function onOptionClick(id){
 }
 var userSeconds = prompt("How many seconds?");
 var seconds = userSeconds;
+
 function secondPassed() {
     var minutes = Math.round((seconds - 30)/60);
     var remainingSeconds = seconds % 60;
