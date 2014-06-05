@@ -50,6 +50,14 @@ function writeQuestion(){
 	
 }
 
+function cleanScreen(){
+
+	document.getElementById("screen").innerHTML = "";	
+
+	document.getElementById("correctAnswers").innerHTML = correctAnswers;	
+
+}
+
 function cleanColor(){
 	for (var x=0;x<4;x++){
 		var rightButton = document.getElementById(x);
@@ -98,11 +106,10 @@ function onOptionClick(id){
 	if(id == rightAnswerId){
 		correctAnswers++;
 		answersQuestion();
-	} else {
-		
+	} else {		
 		changeColor(rightAnswerId);
 		changeActiveStatusButtons (true);
-		setInterval('answersQuestion()', 10000);
+		setInterval('answersQuestion()', 3000);
 	}	
 	//setInterval('answersQuestion()', 10000);	
 	//answersQuestion();
@@ -120,8 +127,9 @@ function secondPassed() {
     }
     document.getElementById('clock').innerHTML = minutes + ":" + remainingSeconds;
     if (seconds == 0) {
-        clearInterval(countdownTimer);
+        clearInterval(countdownTimer);        
         document.getElementById('clock').innerHTML = "0:00";
+        cleanScreen();
     } else {
         seconds--;
     }

@@ -7,15 +7,22 @@
     <link rel="stylesheet" type="text/css" href="style.css">
   </head >
    <body onLoad="answersQuestion()">      
-		  <div id="clock"></div>
+		  <div id= "screen">
+        <div id="clock"></div>
         <div id="question"></div>
           <div>Answer:</div>
-            <div class="buttons" id="0" onclick="onOptionClick(id)"></div>
+           <!-- <div class="buttons" id="0" onclick="onOptionClick(id)"></div>
             <div class="buttons" id="1" onclick="onOptionClick(id)"></div>
             <div class="buttons" id="2" onclick="onOptionClick(id)"></div>
-            <div class="buttons" id="3" onclick="onOptionClick(id)"></div></br>
-		      Correct Answers: <div id="correctAnswers"></div> </br>
-          <div id="rightAnswer"></div>
-      </div>
+            <div class="buttons" id="3" onclick="onOptionClick(id)"></div></br>-->
+            <button type="button" class="buttons" id="0" onclick="onOptionClick(id)"></button>
+            <button type="button" class="buttons" id="1" onclick="onOptionClick(id)"></button>
+            <button type="button" class="buttons" id="2" onclick="onOptionClick(id)"></button>
+            <button type="button" class="buttons" id="3" onclick="onOptionClick(id)"></button></br>
+		        <div id="rightAnswer"></div>
+      </div></br>
+      Correct Answers:</br> <div class="buttons" id="correctAnswers"></div> </br></br>
+      <a href="game.html" class="buttons">Restart</a>
+      <a href="../index.html" class="buttons">Home</a>
    </body>
 </html>

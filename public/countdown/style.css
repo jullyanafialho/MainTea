@@ -51,4 +51,10 @@ body {
 }.buttons:active {
 	position:relative;
 	top:1px;
-}</style>
+}
+.buttons:disabled {
+	background:-webkit-gradient( linear, left top, left bottom, color-stop(0.05, #171017), color-stop(1, #171017) );
+	background:-moz-linear-gradient( center top, #171017 5%, #171017 100% );
+	filter:progid:DXImageTransform.Microsoft.gradient(startColorstr='#171017', endColorstr='#171017');
+	background-color:#171017;
+}
