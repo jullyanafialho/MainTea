@@ -4,22 +4,18 @@
     <!-- (use quintus-all.min.js for production) -->
     <script src='functions_countdown.js'></script>
 	<span id="countdown" class="timer"></span>
-<script>
-
-</script>
-    <link rel="stylesheet" type="text/css" href="../stylesheets/style.css">
+    <link rel="stylesheet" type="text/css" href="style.css">
   </head >
-   <body onLoad="answersQuestion()">
-      
-      <div id="screen">
+   <body onLoad="answersQuestion()">      
 		  <div id="clock"></div>
         <div id="question"></div>
           <div>Answer:</div>
             <div class="buttons" id="0" onclick="onOptionClick(id)"></div>
             <div class="buttons" id="1" onclick="onOptionClick(id)"></div>
             <div class="buttons" id="2" onclick="onOptionClick(id)"></div>
-            <div class="buttons" id="3" onclick="onOptionClick(id)"></div>
-		      <div id="correctAnswers"></div> 
+            <div class="buttons" id="3" onclick="onOptionClick(id)"></div></br>
+		      Correct Answers: <div id="correctAnswers"></div> </br>
+          <div id="rightAnswer"></div>
       </div>
    </body>
 </html>

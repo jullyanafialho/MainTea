@@ -2,6 +2,7 @@ var rightAnswerId = -1;
 var correctAnswers = 0;
 var points = 0;
 
+// Generate number between 1-10
 function generateNumber(){
 
 	var a = Math.floor((Math.random() * 10)+ 1);
@@ -9,6 +10,8 @@ function generateNumber(){
 	
 }
 
+
+//Generate wrong answers based on the right answer
 function generateWrongAnswers(rightAnswer){
 	
 	var allAnswers = [];
@@ -36,6 +39,7 @@ function generateWrongAnswers(rightAnswer){
 
 }
 
+// Generate question
 function writeQuestion(){
 
 	var a = generateNumber() ;
@@ -46,8 +50,23 @@ function writeQuestion(){
 	
 }
 
+function cleanColor(){
+	for (var x=0;x<4;x++){
+		var rightButton = document.getElementById(x);
+		rightButton.setAttribute("style","background:-webkit-gradient( linear, left top, left bottom, color-stop(0.05, #ededed), color-stop(1, #dfdfdf) );");
+	}
+}
 
+function changeActiveStatusButtons (status){
+	for (var x=0;x<4;x++){
+		document.getElementById(x).disabled = status; 
+	}
+}
+
+//Generate questions and answers
 function answersQuestion(){
+	cleanColor();
+	changeActiveStatusButtons (false);
 
 	var rightAnswer = writeQuestion();
 
@@ -67,19 +86,30 @@ function answersQuestion(){
 
 }
 
+
+
+function changeColor(rightAnswerId){
+	var rightButton = document.getElementById(rightAnswerId);
+	rightButton.setAttribute("style","background:-webkit-gradient( linear, left top, left bottom, color-stop(0.05, #b8e356 ), color-stop(1, #b8e356 ) );");
+}
+
 function onOptionClick(id){
 
-	if(id != rightAnswerId)
-		alert("Wrong answer!");
-	else {
-	
-	correctAnswers++;
-	answersQuestion();
-	document.getElementById("correctAnswers").innerHTML = "Correct Answers: "+correctAnswers;
-	
-	}  
-
+	if(id == rightAnswerId){
+		correctAnswers++;
+		answersQuestion();
+	} else {
+		
+		changeColor(rightAnswerId);
+		changeActiveStatusButtons (true);
+		setInterval('answersQuestion()', 10000);
+	}	
+	//setInterval('answersQuestion()', 10000);	
+	//answersQuestion();
+	document.getElementById("correctAnswers").innerHTML = correctAnswers;	
 }
+
+
 //var userSeconds = prompt("How many seconds?");
 var seconds = 60;
 function secondPassed() {
