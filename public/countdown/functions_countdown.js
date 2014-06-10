@@ -109,7 +109,7 @@ function onOptionClick(id){
 	} else {		
 		changeColor(rightAnswerId);
 		changeActiveStatusButtons (true);
-		setInterval('answersQuestion()', 3000);
+		setTimeout('answersQuestion()', 3000);
 	}	
 	//setInterval('answersQuestion()', 10000);	
 	//answersQuestion();
