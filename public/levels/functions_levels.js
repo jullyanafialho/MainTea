@@ -3,7 +3,9 @@ var correctAnswers = 0;
 var points = 0;
 var level = -1;
 var correctLevelAnswers = [0, 0, 0];
-var TotalQuestions = 1;
+var TotalQuestions = 0;
+var streakMultiplier = 1;
+var points = 0;
 
 function generateNumber(){
 
@@ -43,15 +45,18 @@ function writeQuestion(){
 
 	var a = 0;
 	var b = 0;
-	
+
+
 	TotalQuestions++;
-	TrueLevel=level+2;
+
 
 	if((TotalQuestions%10) == 0){		
+		alert("you are now on level: "+(level+3));
 		level++;
 		correctLevelAnswers[level] = correctAnswers - (correctLevelAnswers[0]+correctLevelAnswers[1]);
-		alert("You are now on level: " + TrueLevel);
-	}		
+	}else if(TotalQuestions == 1){
+		alert("you are now on level: 1");
+	}
 		switch (level){
 			case -1:
 				while(a != 1 && a!= 2 && a!= 3 && a!= 10){
@@ -105,38 +110,20 @@ function answersQuestion(){
 
 function onOptionClick(id){
 
-	if(id != rightAnswerId)
+	if(id != rightAnswerId){
 		alert("Wrong answer!");
+		streakMultiplier = 1;		
+	}
 	else {
-	
-	correctAnswers++;
-	answersQuestion();
-	document.getElementById("correctAnswers").innerHTML = "Correct Answers: "+correctAnswers;
-	
+		streakMultiplier++;
+		correctAnswers++;
+		answersQuestion();
+		document.getElementById("correctAnswers").innerHTML = "Correct Answers: "+correctAnswers;
+		points += (correctAnswers*streakMultiplier);
+		document.getElementById("streak").innerHTML = "Streak Multiplier: X"+streakMultiplier;
+		document.getElementById("points").innerHTML = "Points: "+points;
+
 	}  
 
 }
-var userSeconds = prompt("How many seconds?");
-var seconds = userSeconds;
 
-function secondPassed() {
-    var minutes = Math.round((seconds - 30)/60);
-    var remainingSeconds = seconds % 60;
-    if (remainingSeconds < 10) {
-        remainingSeconds = "0" + remainingSeconds;  
-    }
-    document.getElementById('clock').innerHTML = minutes + ":" + remainingSeconds;
-    if (seconds == 0) {
-		calcPoints();
-        clearInterval(countdownTimer);
-        document.getElementById('clock').innerHTML = "0:00";
-    } else {
-        seconds--;
-    }
-}
-var countdownTimer = setInterval('secondPassed()', 1000);
-
-var calcPoints = function(){
-	points = Math.round(((correctAnswers/userSeconds)*correctAnswers)*100);
-	alert('Points ' + points);
-}
