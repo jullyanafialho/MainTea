@@ -12,10 +12,14 @@
 </script>
     <link rel="stylesheet" type="text/css" href="style.css">
   </head >
-   <body onLoad="answersQuestion()">
-      <div id="level"></div>
-      <div id="mainbox">
-      <div id="screen">
+   <body  onLoad="answersQuestion()">
+      <div id="resultBox" class="buttons"><a id="return" class="buttons" href="../index.html">&#x21b6; </a></div>
+      <div id="main">
+        <a id="return" class="buttons" href="../index.html">&#x21b6; </a>
+        <div id="level"></div>
+        <div id="mainbox">
+        <div id="screen">
+
 		    <div id="question"></div>
         <div>Answer:</div></br>
         <button type="button" class="buttons" id="0" onclick="onOptionClick(id)"></button> &nbsp; &nbsp;
@@ -25,6 +29,7 @@
 		    <div class="buttons" id="correctAnswers"></div>
         <div class="buttons" id="streak"></div>
         <div class="buttons" id="error"></div>
+        </div>
       </div>
 
    </body>

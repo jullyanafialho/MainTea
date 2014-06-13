@@ -6,6 +6,7 @@ var correctLevelAnswers = [0, 0, 0];
 var TotalQuestions = 0;
 var streakMultiplier = 1;
 var errors = 0;
+var topStreak = 1;
 
 function generateNumber(){
 
@@ -51,14 +52,17 @@ function writeQuestion(){
 
 
 	if((TotalQuestions%10) == 0){		
-		document.getElementById("level").innerHTML = "Level: "+level+3;
+		document.getElementById("level").innerHTML = "Level: "+(level+3);
 		level++;
 		correctLevelAnswers[level] = correctAnswers - (correctLevelAnswers[0]+correctLevelAnswers[1]);
+		errors = 0;
 	}else if(TotalQuestions == 1){
 		document.getElementById("correctAnswers").innerHTML = "Corrects: "+correctAnswers;
 		document.getElementById("streak").innerHTML = "Streak: X"+streakMultiplier;
 		document.getElementById("error").innerHTML = "Wrong: "+errors;
 		document.getElementById("level").innerHTML = "Level: "+(level+2);
+	}else if(TotalQuestions > 30){
+		endgame();
 	}
 		switch (level){
 			case -1:
@@ -123,7 +127,10 @@ function onOptionClick(id){
 		document.getElementById("error").innerHTML = "Wrong: "+errors;
 		changeColor(rightAnswerId);
 		changeActiveStatusButtons (true);
-		setTimeout('answersQuestion()', 3000);	
+		setTimeout('answersQuestion()', 2000);
+		if(errors>3){
+			endgame();
+		}	
 	}
 	else {
 		streakMultiplier++;
@@ -133,6 +140,9 @@ function onOptionClick(id){
 		document.getElementById("streak").innerHTML = "Streak: X"+streakMultiplier;
 		document.getElementById("error").innerHTML = "Wrong: "+errors;
 
+		if(streakMultiplier>topStreak){	
+			topStreak=streakMultiplier;
+		}
 	}  
 
 }
@@ -154,3 +164,17 @@ function changeColor(rightAnswerId){
 	var rightButton = document.getElementById(rightAnswerId);
 	rightButton.setAttribute("style","background:-webkit-gradient( linear, left top, left bottom, color-stop(0.05, #b8e356 ), color-stop(1, #b8e356 ) );");
 }
+
+function endgame(){
+
+	var tudo = document.getElementById("main");
+	tudo.setAttribute("style", "display:none;");
+
+	var result = document.getElementById("resultBox");
+	result.setAttribute("style", "display:block;");
+	document.getElementById("resultBox").innerHTML = "Game Result: <br>Errors: " + errors + "<br>Total Questions:" + TotalQuestions + "<br>Corrects: " + correctAnswers + "<br>Top streak: " + topStreak;
+
+	setTimeout('location.reload()', 5000);
+
+}
+

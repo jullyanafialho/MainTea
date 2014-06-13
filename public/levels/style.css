@@ -56,7 +56,7 @@ body {
 	text-decoration:none;
 	text-align:center;
 	text-shadow:1px 0px 0px #ffffff;
-	box-shadow: 1px 6px 25px 0px #000;;
+	box-shadow: 1px 6px 25px 0px #000;
 }
 .buttons:hover {
 	background:-webkit-gradient( linear, left top, left bottom, color-stop(0.05, #d6d3d6), color-stop(1, #ffffff) );
@@ -72,4 +72,26 @@ body {
 #question {
 
 	font-size: 4em;
+}
+
+#return {
+	height:40px;
+	width: 60px;
+	border-radius: 100%;
+	font-size: 48px;
+	position: absolute;
+	display: block;
+	
+}
+
+
+#resultBox {
+
+	height:300px;
+	width: 300px;
+	border-radius: 5px;
+	text-align: center;
+	display:none;
+	margin:auto;
+	margin-Top:10%;
 }
