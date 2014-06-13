@@ -6,6 +6,7 @@ var correctLevelAnswers = [0, 0, 0];
 var TotalQuestions = 0;
 var streakMultiplier = 1;
 var points = 0;
+var errors = 0;
 
 function generateNumber(){
 
@@ -64,7 +65,7 @@ function writeQuestion(){
 				}
 				
 				b = generateNumber();
-				var x = a + " * " + b ;
+				var x = a + " x " + b ;
 				document.getElementById("question").innerHTML = x;
  				return a*b;
  			case 0:
@@ -72,7 +73,7 @@ function writeQuestion(){
 					a = generateNumber();
 				}
 				b = generateNumber();
-				var x = a + " * " + b ;
+				var x = a + " x " + b ;
  				document.getElementById("question").innerHTML = x;
  				return a*b;
  			case 1:
@@ -80,7 +81,7 @@ function writeQuestion(){
 					a = generateNumber();
 				}
 				b = generateNumber();
-				var x = a + " * " + b ;
+				var x = a + " x " + b ;
  				document.getElementById("question").innerHTML = x;
  				return a*b;		
 		}
@@ -111,17 +112,18 @@ function answersQuestion(){
 function onOptionClick(id){
 
 	if(id != rightAnswerId){
-		alert("Wrong answer!");
-		streakMultiplier = 1;		
+		streakMultiplier = 1;
+		errors++;	
+		document.getElementById("error").innerHTML = "Wrong: "+errors;	
 	}
 	else {
 		streakMultiplier++;
 		correctAnswers++;
 		answersQuestion();
-		document.getElementById("correctAnswers").innerHTML = "Correct Answers: "+correctAnswers;
+		document.getElementById("correctAnswers").innerHTML = "Corrects: "+correctAnswers;
 		points += (correctAnswers*streakMultiplier);
-		document.getElementById("streak").innerHTML = "Streak Multiplier: X"+streakMultiplier;
-		document.getElementById("points").innerHTML = "Points: "+points;
+		document.getElementById("streak").innerHTML = "Streak: X"+streakMultiplier;
+		document.getElementById("error").innerHTML = "Wrong: "+errors;
 
 	}  
 

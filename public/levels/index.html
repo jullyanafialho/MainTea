@@ -3,7 +3,7 @@
     <!-- Pull the engine from the Quintus CDN or load it locally -->
     <!-- (use quintus-all.min.js for production) -->
     <title>EducationApp - Levels</title>
-    <link rel='stylesheet' href='../stylesheets/style.css'/>
+    <link rel='stylesheet' href='style.css'/>
 
     <script src='functions_levels.js'></script>
 	<span id="countdown" class="timer"></span>
@@ -13,16 +13,18 @@
     <link rel="stylesheet" type="text/css" href="style.css">
   </head >
    <body onLoad="answersQuestion()">
-      
+      <div id="mainbox">
       <div id="screen">
 		    <div id="question"></div>
         <div>Answer:</div></br>
         <div class="buttons" id="0" onclick="onOptionClick(id)"></div>&nbsp; &nbsp;
         <div class="buttons" id="1" onclick="onOptionClick(id)"></div></br></br>
         <div class="buttons" id="2" onclick="onOptionClick(id)"></div>&nbsp; &nbsp;
-        <div class="buttons" id="3" onclick="onOptionClick(id)"></div></br></br>
-		    <div id="correctAnswers"></div>
-        <div id="streak"></div>
-        <div id="points"></div> 
+        <div class="buttons" id="3" onclick="onOptionClick(id)"></div></br></br><br>
+		    <div class="buttons" id="correctAnswers"></div>
+        <div class="buttons" id="streak"></div>
+        <div class="buttons" id="error"></div>
+      </div>
+
    </body>
 </html>
