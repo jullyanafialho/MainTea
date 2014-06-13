@@ -125,10 +125,10 @@ function secondPassed() {
     if (remainingSeconds < 10) {
         remainingSeconds = "0" + remainingSeconds;  
     }
-    document.getElementById('clock').innerHTML = minutes + ":" + remainingSeconds;
+    //document.getElementById('clock').innerHTML = minutes + ":" + remainingSeconds;
     if (secondsClock == 0) {
         clearInterval(countdownTimer);        
-        document.getElementById('clock').innerHTML = "0:00";
+        //document.getElementById('clock').innerHTML = "0:00";
         cleanScreen();
     } else {
         secondsClock--;
