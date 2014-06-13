@@ -44,7 +44,7 @@ function writeQuestion(){
 
 	var a = generateNumber() ;
 	var b = generateNumber() ;
-	var x = a + " * " + b ;
+	var x = a + " x " + b ;
  	document.getElementById("question").innerHTML = x;
  	return a*b;
 	

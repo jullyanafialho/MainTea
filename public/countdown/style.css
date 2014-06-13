@@ -116,3 +116,19 @@ body {
   -webkit-transform: rotate(135deg);
   transform: rotate(135deg);
 }
+
+
+#question {
+
+	position: absolute;
+	text-align: center;
+	margin:auto;
+	margin-top:8.4%;
+	left:38%;
+	right:38%;
+	font-size: 4em;
+	z-index:10000;
+
+
+
+}
