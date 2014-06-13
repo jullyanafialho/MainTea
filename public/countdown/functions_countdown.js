@@ -118,20 +118,20 @@ function onOptionClick(id){
 
 
 //var userSeconds = prompt("How many seconds?");
-var seconds = 60;
+var secondsClock = 59;
 function secondPassed() {
-    var minutes = Math.round((seconds - 30)/60);
-    var remainingSeconds = seconds % 60;
+    var minutes = Math.round((secondsClock - 30)/60);
+    var remainingSeconds = secondsClock % 60;
     if (remainingSeconds < 10) {
         remainingSeconds = "0" + remainingSeconds;  
     }
     document.getElementById('clock').innerHTML = minutes + ":" + remainingSeconds;
-    if (seconds == 0) {
+    if (secondsClock == 0) {
         clearInterval(countdownTimer);        
         document.getElementById('clock').innerHTML = "0:00";
         cleanScreen();
     } else {
-        seconds--;
+        secondsClock--;
     }
 }
 var countdownTimer = setInterval('secondPassed()', 1000);
