@@ -90,6 +90,27 @@ body {
     z-index: 1;
     text-decoration: none;
     font-size: 12px;
+
+	
+}
+
+#return2 {
+    float: right;
+    cursor: pointer;
+    text-align: right;
+    margin: 0px;
+    padding: 4px 8px;
+    background: #333;
+    color: #fff;
+	position: inline-block;
+	cursor: pointer;
+	background: #333;
+    color: #fff;
+    padding: 10px;
+    z-index: 1;
+    text-decoration: none;
+    font-size: 12px;
+
 	
 }
 

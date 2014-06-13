@@ -174,7 +174,13 @@ function endgame(){
 	result.setAttribute("style", "display:block;");
 	document.getElementById("resultBox").innerHTML = "Game Result: <br>Errors: " + errors + "<br>Total Questions:" + TotalQuestions + "<br>Corrects: " + correctAnswers + "<br>Top streak: " + topStreak;
 
-	setTimeout('location.reload()', 5000);
+	var butext = document.getElementById("return");
+	butext.setAttribute("style", "margin-top:-9%");
+
+	var butext2 = document.getElementById("return2");
+	butext2.setAttribute("style", "margin-top:-9%");
+	
+	//setTimeout('location.reload()', 5000);
 
 }
 
