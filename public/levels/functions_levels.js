@@ -128,7 +128,7 @@ function onOptionClick(id){
 		changeColor(rightAnswerId);
 		changeActiveStatusButtons (true);
 		setTimeout('answersQuestion()', 2000);
-		if(errors>3){
+		if(errors>2){
 			endgame();
 		}	
 	}
