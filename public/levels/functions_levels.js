@@ -61,8 +61,8 @@ function writeQuestion(){
 		document.getElementById("streak").innerHTML = "Streak: X"+streakMultiplier;
 		document.getElementById("error").innerHTML = "Wrong: "+errors;
 		document.getElementById("level").innerHTML = "Level: "+(level+2);
-	}else if(TotalQuestions > 30){
-		setTimeout('endgame()', 2000);
+	}else if(TotalQuestions > 29){
+		endgame();
 	}
 		switch (level){
 			case -1:
