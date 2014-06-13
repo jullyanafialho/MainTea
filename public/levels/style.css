@@ -8,10 +8,18 @@ body {
 
 #mainbox{
 
-  	padding-top: 10%;
+  	padding-top: 3%;
   	font: 14px "Lucida Grande", Helvetica, Arial, sans-serif;
   	text-align: center;
 
+}
+
+#level{
+
+	padding-top: 5%;
+  	font: 14px "Lucida Grande", Helvetica, Arial, sans-serif;
+  	text-align: center;
+  	font-size: 4em;
 }
 
 .buttons {

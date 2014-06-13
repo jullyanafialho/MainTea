@@ -51,13 +51,14 @@ function writeQuestion(){
 
 
 	if((TotalQuestions%10) == 0){		
-		alert("you are now on level: "+(level+3));
+		document.getElementById("level").innerHTML = "Level: "+level+3;
 		level++;
 		correctLevelAnswers[level] = correctAnswers - (correctLevelAnswers[0]+correctLevelAnswers[1]);
 	}else if(TotalQuestions == 1){
 		document.getElementById("correctAnswers").innerHTML = "Corrects: "+correctAnswers;
 		document.getElementById("streak").innerHTML = "Streak: X"+streakMultiplier;
 		document.getElementById("error").innerHTML = "Wrong: "+errors;
+		document.getElementById("level").innerHTML = "Level: "+(level+2);
 	}
 		switch (level){
 			case -1:
@@ -92,6 +93,10 @@ function writeQuestion(){
 
 function answersQuestion(){
 
+	cleanColor();
+
+	changeActiveStatusButtons (false);
+
 	var rightAnswer = writeQuestion();
 
 	var answers = [];
@@ -115,7 +120,10 @@ function onOptionClick(id){
 	if(id != rightAnswerId){
 		streakMultiplier = 1;
 		errors++;	
-		document.getElementById("error").innerHTML = "Wrong: "+errors;	
+		document.getElementById("error").innerHTML = "Wrong: "+errors;
+		changeColor(rightAnswerId);
+		changeActiveStatusButtons (true);
+		setTimeout('answersQuestion()', 3000);	
 	}
 	else {
 		streakMultiplier++;
@@ -129,3 +137,20 @@ function onOptionClick(id){
 
 }
 
+function cleanColor(){
+	for (var x=0;x<4;x++){
+		var rightButton = document.getElementById(x);
+		rightButton.setAttribute("style","background:-webkit-gradient( linear, left top, left bottom, color-stop(0.05, #ededed), color-stop(1, #dfdfdf) );");
+	}
+}
+
+function changeActiveStatusButtons (status){
+	for (var x=0;x<4;x++){
+		document.getElementById(x).disabled = status; 
+	}
+}
+
+function changeColor(rightAnswerId){
+	var rightButton = document.getElementById(rightAnswerId);
+	rightButton.setAttribute("style","background:-webkit-gradient( linear, left top, left bottom, color-stop(0.05, #b8e356 ), color-stop(1, #b8e356 ) );");
+}
