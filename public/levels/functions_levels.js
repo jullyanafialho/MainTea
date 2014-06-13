@@ -62,7 +62,7 @@ function writeQuestion(){
 		document.getElementById("error").innerHTML = "Wrong: "+errors;
 		document.getElementById("level").innerHTML = "Level: "+(level+2);
 	}else if(TotalQuestions > 30){
-		endgame();
+		setTimeout('endgame()', 2000);
 	}
 		switch (level){
 			case -1:
@@ -129,7 +129,7 @@ function onOptionClick(id){
 		changeActiveStatusButtons (true);
 		setTimeout('answersQuestion()', 2000);
 		if(errors>2){
-			endgame();
+			setTimeout('endgame()', 2000);
 		}	
 	}
 	else {
@@ -180,7 +180,7 @@ function endgame(){
 	var butext2 = document.getElementById("return2");
 	butext2.setAttribute("style", "margin-top:-9%");
 	
-	//setTimeout('location.reload()', 5000);
+
 
 }
 
