@@ -5,7 +5,6 @@ var level = -1;
 var correctLevelAnswers = [0, 0, 0];
 var TotalQuestions = 0;
 var streakMultiplier = 1;
-var points = 0;
 var errors = 0;
 
 function generateNumber(){
@@ -56,7 +55,9 @@ function writeQuestion(){
 		level++;
 		correctLevelAnswers[level] = correctAnswers - (correctLevelAnswers[0]+correctLevelAnswers[1]);
 	}else if(TotalQuestions == 1){
-		alert("you are now on level: 1");
+		document.getElementById("correctAnswers").innerHTML = "Corrects: "+correctAnswers;
+		document.getElementById("streak").innerHTML = "Streak: X"+streakMultiplier;
+		document.getElementById("error").innerHTML = "Wrong: "+errors;
 	}
 		switch (level){
 			case -1:
@@ -121,7 +122,6 @@ function onOptionClick(id){
 		correctAnswers++;
 		answersQuestion();
 		document.getElementById("correctAnswers").innerHTML = "Corrects: "+correctAnswers;
-		points += (correctAnswers*streakMultiplier);
 		document.getElementById("streak").innerHTML = "Streak: X"+streakMultiplier;
 		document.getElementById("error").innerHTML = "Wrong: "+errors;
 
