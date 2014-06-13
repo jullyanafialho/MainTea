@@ -89,15 +89,15 @@ body {
     padding: 10px;
     z-index: 1;
     text-decoration: none;
-    font-size: 12px;
+    font-size: 11px;
 
 	
 }
 
 #return2 {
-    float: right;
+    float: left;
     cursor: pointer;
-    text-align: right;
+    text-align: left;
     margin: 0px;
     padding: 4px 8px;
     background: #333;
@@ -109,7 +109,8 @@ body {
     padding: 10px;
     z-index: 1;
     text-decoration: none;
-    font-size: 12px;
+    font-size: 11px;
+    margin-left: 58px;
 
 	
 }
