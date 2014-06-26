@@ -12,6 +12,19 @@ function generateNumber(){
 	
 }
 
+function cleanColor(){
+	for (var x=0;x<4;x++){
+		var rightButton = document.getElementById(x);
+		rightButton.setAttribute("style","background:-webkit-gradient( linear, left top, left bottom, color-stop(0.05, #ededed), color-stop(1, #dfdfdf) );");
+	}
+}
+
+function changeActiveStatusButtons (status){
+	for (var x=0;x<4;x++){
+		document.getElementById(x).disabled = status; 
+	}
+}
+
 function generateWrongAnswers(rightAnswer){
 	
 	var allAnswers = [];
@@ -51,6 +64,9 @@ function writeQuestion(){
 
 
 function answersQuestion(){
+	cleanColor();
+
+	changeActiveStatusButtons (false);
 
 	var rightAnswer = writeQuestion();
 
@@ -70,16 +86,25 @@ function answersQuestion(){
 
 }
 
+function changeColor(rightAnswerId){
+	var rightButton = document.getElementById(rightAnswerId);
+	rightButton.setAttribute("style","background:-webkit-gradient( linear, left top, left bottom, color-stop(0.05, #b8e356 ), color-stop(1, #b8e356 ) );");
+}
+
 function onOptionClick(id){
 	if(id != rightAnswerId){
+		changeActiveStatusButtons (true);
+		changeColor(rightAnswerId);
 		ClearClock();
 		wrongAnswers++;
 		document.getElementById("wrongAnswers").innerHTML = "Wrong: " + wrongAnswers;
 		if(wrongAnswers == 3){
 			calcPoints();
 			}
-		
-		answersQuestion();
+		seconds++;
+		//setTimeout('answersQuestion()', 1000);
+		answersQuestion()
+		ClearClock();
 	}
 	else {
 	ClearClock();
@@ -88,7 +113,7 @@ function onOptionClick(id){
 	document.getElementById("correctAnswers").innerHTML = "Correct: " + correctAnswers;
 	totalSeconds += remainingSeconds;
 	seconds = 10;
-	secondPassed()
+	//secondPassed()
 	}  
 
 }
@@ -119,18 +144,20 @@ function onOptionClick(id){
     }
 }
 */
-var seconds = 10;
+var seconds = 9;
 var remainingSeconds = seconds;
 function secondPassed() {
     if (seconds == 0) {
+    	ClearClock();
     	wrongAnswers++;
+    	document.getElementById("wrongAnswers").innerHTML = "Wrong: " + wrongAnswers;
     	if(wrongAnswers == 3){
     		clearInterval(countdownTimer);
 			calcPoints();
 			}
 		else {
-			seconds = 10;
-			secondPassed();
+			seconds = 9;
+			//secondPassed();
 			answersQuestion();
 			}
     	}

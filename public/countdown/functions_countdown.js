@@ -137,6 +137,7 @@ function secondPassed() {
     }
     //document.getElementById('clock').innerHTML = minutes + ":" + remainingSeconds;
     if (secondsClock == 0) {
+    	ClearClock();
         clearInterval(countdownTimer);        
         //document.getElementById('clock').innerHTML = "0:00";
         cleanScreen();
@@ -146,3 +147,7 @@ function secondPassed() {
 }
 var countdownTimer = setInterval('secondPassed()', 1000);
 
+function ClearClock() {
+    alfa=0;
+  
+}
