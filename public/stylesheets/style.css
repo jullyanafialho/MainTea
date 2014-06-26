@@ -49,7 +49,8 @@ body {
 	text-decoration:none;
 	text-align:center;
 	text-shadow:1px 0px 0px #ffffff;
-	box-shadow: 1px 6px 25px 0px #000;;
+	box-shadow: 1px 6px 25px 0px #000;
+    box-sizing: border-box; 
 }
 .buttons:hover {
 	background:-webkit-gradient( linear, left top, left bottom, color-stop(0.05, #d6d3d6), color-stop(1, #ffffff) );
@@ -115,6 +116,8 @@ body {
             color: #fff;
             padding: 10px;
             z-index: 1;
+            font-weight: 600;
+            font-size: 0.75em;
         }
 
         input[type='checkbox']:checked ~ #content {

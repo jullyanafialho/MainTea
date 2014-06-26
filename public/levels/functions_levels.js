@@ -4,9 +4,9 @@ var points = 0;
 var level = -1;
 var correctLevelAnswers = [0, 0, 0];
 var TotalQuestions = 0;
-var streakMultiplier = 0;
+var streakMultiplier = 1;
 var errors = 0;
-var topStreak = 0;
+var topStreak = 1;
 
 function generateNumber(){
 

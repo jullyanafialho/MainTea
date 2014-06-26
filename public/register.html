@@ -1,30 +1,27 @@
 <html>
-<body>
-   <head>
+
+<head>
     <title>Register</title>
     <link rel='stylesheet' href='stylesheets/style.css'/>
- 	<form name="input" action="register.php" method="post">
+    <script src='js/functions.js'></script>
+</head>
+
+<body>
 		<div align="center">
-			Username *: <input type="username" name="username" /></br>
+			Username *: <input type="username" name="username" /></br></br>
 
- 			Name *: <input type="name" name="name" /></br>
+ 			Name *: <input type="name" name="name" /></br></br>
 
- 			LastName *: <input type="lastname" name="lastname" /> 	</br>	
+ 			LastName *: <input type="lastname" name="lastname" /></br></br>	
 			
-			Password *: <input type="password" name="pwd" /></br>
+			Password *: <input type="password" name="pwd" /></br></br>
  
-			Surname *: <input type="surname" name="surname" /></br>
+			Date of Birth *: <input type="date of birth" name="dob" /></br></br>
  
-			Date of Birth *: <input type="date of birth" name="dob" /></br>
+			Email *: <input type="email" name="email" /></br></br>
  
-			Email *: <input type="email" name="email" /></br>
- 
-			Telephone: <input type="telephone" name="tel" /></br>
-
- 
-		<input type="submit" value="Submit" /></br>
+ 		<button type="button" class="buttons" onclick="Register()">Submit</button> 		
 		</div>
-	</form>
  
  
 
