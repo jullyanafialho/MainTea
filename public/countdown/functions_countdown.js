@@ -65,7 +65,7 @@ function cleanScreen(){
 	respostas.setAttribute("style", "text-align:center; padding:16%;font-size:3em;");
 
 	var respostas2 = document.getElementById("container");
-	respostas2.setAttribute("style", "height:100px;width:100px;border-radius:5px;text-align:center;font-size:2em;color:red;");
+	respostas2.setAttribute("style", "height:100px;width:100px;border-radius:5px;text-align:center;font-size:2em;color:green;");
 }
 
 function cleanColor(){

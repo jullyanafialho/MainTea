@@ -74,7 +74,7 @@ function onOptionClick(id){
 	if(id != rightAnswerId){
 		ClearClock();
 		wrongAnswers++;
-		document.getElementById("wrongAnswers").innerHTML = wrongAnswers;
+		document.getElementById("wrongAnswers").innerHTML = "Wrong: " + wrongAnswers;
 		if(wrongAnswers == 3){
 			calcPoints();
 			}
@@ -85,7 +85,7 @@ function onOptionClick(id){
 	ClearClock();
 	correctAnswers++;
 	answersQuestion();
-	document.getElementById("correctAnswers").innerHTML = correctAnswers;
+	document.getElementById("correctAnswers").innerHTML = "Correct: " + correctAnswers;
 	totalSeconds += remainingSeconds;
 	seconds = 10;
 	secondPassed()
