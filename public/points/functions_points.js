@@ -72,14 +72,17 @@ function answersQuestion(){
 
 function onOptionClick(id){
 	if(id != rightAnswerId){
-		alert("Wrong answer! You still can miss "+ (2 - wrongAnswers) +" more time(s)!");
+		ClearClock();
 		wrongAnswers++;
 		document.getElementById("wrongAnswers").innerHTML = wrongAnswers;
-		if(wrongAnswers == 3)
+		if(wrongAnswers == 3){
 			calcPoints();
-		}
+			}
+		
+		answersQuestion();
+	}
 	else {
-	
+	ClearClock();
 	correctAnswers++;
 	answersQuestion();
 	document.getElementById("correctAnswers").innerHTML = correctAnswers;
@@ -90,8 +93,8 @@ function onOptionClick(id){
 
 }
 
-var seconds = 10;
-function secondPassed() {
+
+/*function secondPassed() {
     var minutes = Math.round((seconds - 30)/60);
     remainingSeconds = seconds % 60;
     if (remainingSeconds == 10) {
@@ -111,11 +114,33 @@ function secondPassed() {
 			secondPassed();
 			answersQuestion();
 		}
-        document.getElementById('clock').innerHTML = "0:00";
     } else {
         seconds--;
     }
 }
+*/
+var seconds = 10;
+var remainingSeconds = seconds;
+function secondPassed() {
+    if (seconds == 0) {
+    	wrongAnswers++;
+    	if(wrongAnswers == 3){
+    		clearInterval(countdownTimer);
+			calcPoints();
+			}
+		else {
+			seconds = 10;
+			secondPassed();
+			answersQuestion();
+			}
+    	}
+    else {
+        seconds--;
+        remainingSeconds = seconds;
+    	}
+
+}
+
 
 var countdownTimer = setInterval('secondPassed()', 1000);
 
@@ -124,4 +149,12 @@ var calcPoints = function(){
 	alert("You've got 3 wrong answers. Your score is: "  + points);
 	//inserSQL()userName,points);
 	window.location = '../index.html'
+}
+
+
+
+
+ function ClearClock() {
+    alfa=0;
+  
 }
