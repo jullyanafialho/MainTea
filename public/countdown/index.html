@@ -1,4 +1,5 @@
 <html>
+
   <head>
     <!-- Pull the engine from the Quintus CDN or load it locally -->
     <!-- (use quintus-all.min.js for production) -->
@@ -6,7 +7,10 @@
 	<span id="countdown" class="timer"></span>
     <link rel="stylesheet" type="text/css" href="style.css">
   </head >
-   <body onLoad="answersQuestion()">      
+   
+   <body onLoad="answersQuestion()">
+    <div style="position:absolute"><a id="return" href="../index.html">Home</a><a id="return2" onclick="location.reload()">Restart</a></div>
+
 		  <div id= "screen">
         <div id="question"></div>
 <!--////////////////////////DIV OF THE CLOCK ///////////////////////////////-->
@@ -28,10 +32,8 @@
             <button type="button" class="buttons" id="2" onclick="onOptionClick(id)"></button>   &nbsp;  &nbsp; 
             <button type="button" class="buttons" id="3" onclick="onOptionClick(id)"></button></br>
 		        <div id="rightAnswer"></div>
-      </div></br>
-      Correct Answers:</br> <div class="buttons" id="correctAnswers">0</div> </br></br>
-      <a href="index.html" class="buttons">Restart</a>
-      <a href="../index.html" class="buttons">Home</a>
+      </br>
+      Correct Answers:</br> <div class="buttons" id="correctAnswers">0</div> </br>
 
 
 
