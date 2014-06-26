@@ -52,9 +52,14 @@ function writeQuestion(){
 
 function cleanScreen(){
 
-	document.getElementById("screen").innerHTML = "";	
+	
+	var tela = document.getElementById("screen");
+	tela.setAttribute("style", "display:none;");	
 
 	document.getElementById("correctAnswers").innerHTML = correctAnswers;	
+
+	var respostas = document.getElementById("resp");
+	respostas.setAttribute("style", "text-align:center; padding:20%;");
 
 }
 
