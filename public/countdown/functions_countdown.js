@@ -128,7 +128,7 @@ function onOptionClick(id){
 
 
 //var userSeconds = prompt("How many seconds?");
-var secondsClock = 1;
+var secondsClock = 59;
 function secondPassed() {
     var minutes = Math.round((secondsClock - 30)/60);
     var remainingSeconds = secondsClock % 60;
