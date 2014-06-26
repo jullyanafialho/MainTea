@@ -58,9 +58,14 @@ function cleanScreen(){
 
 	document.getElementById("correctAnswers").innerHTML = correctAnswers;	
 
-	var respostas = document.getElementById("resp");
-	respostas.setAttribute("style", "text-align:center; padding:20%;");
+	var correctStyle = document.getElementById("correctAnswers");	
+	correctStyle.setAttribute("style", "margin-top:28px;");
 
+	var respostas = document.getElementById("resp");
+	respostas.setAttribute("style", "text-align:center; padding:16%;font-size:3em;");
+
+	var respostas2 = document.getElementById("container");
+	respostas2.setAttribute("style", "height:100px;width:100px;border-radius:5px;text-align:center;font-size:2em;color:red;");
 }
 
 function cleanColor(){
@@ -123,7 +128,7 @@ function onOptionClick(id){
 
 
 //var userSeconds = prompt("How many seconds?");
-var secondsClock = 59;
+var secondsClock = 1;
 function secondPassed() {
     var minutes = Math.round((secondsClock - 30)/60);
     var remainingSeconds = secondsClock % 60;
